@@ -2,6 +2,31 @@ The AI Career Navigator: A Multi-Agent Planning Flow
 
 ![](/CareerBuilderHelperAgentic/The_AI_Career_Navigator_1.png.png)
 
+Install 
+Python 3.9 or later
+pip for installing packages
+
+Install ADK by running the following command:
+
+pip install google-adk
+
+Create a Python virtual environment:
+
+python -m venv .venv
+Activate the Python virtual environment:
+
+On MAC/Linux:
+
+source .venv/bin/activate
+
+on Window:
+
+.venv\Scripts\activate.bat
+
+Create .env file and add 
+GOOGLE_GENAI_USE_VERTEXAI=0
+GOOGLE_API_KEY=<Value>
+
 The AI Career Navigator is a highly structured, multi-agent system designed to address the challenge of personalized career and college planning. Traditional search processes for educational guidance are often generic, time-consuming, and prone to delivering outdated information. This solution automates the end-to-end research, validation, and summarization process by leveraging the power of the Google Agent Development Kit (ADK) structure, grounded search capabilities (Google Search Tool), and iterative data collection.
 
 The primary goal of the project is to convert a user's broad interest into a specific, actionable roadmap, complete with validated college choices and detailed admission criteria.
