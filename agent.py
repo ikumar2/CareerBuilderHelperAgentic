@@ -1,16 +1,16 @@
 import logging
 from typing import Dict, Any, Optional
-# Placeholder imports for Google ADK components
-# In a real project, you would install and import these:
+
 from google.adk.agents import Agent, State, Flow
 from google.adk.plugins import LoggingPlugin
-from google.adk.tools.google_search_tool import google_search, GoogleSearchTool
+from google.adk.tools.google_search_tool import GoogleSearchTool
+from google.adk.tools import google_search
 from google.genai import types
 
 # --- Configuration and Initialization Placeholders ---
 
 # 1. Setup Logging
-# In a real ADK project, the LoggingPlugin handles this.
+# The LoggingPlugin handles this.
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger('CareerBuilderHelper')
 
@@ -19,9 +19,7 @@ def setup_adk_environment():
     """Simulates initializing ADK plugins and tools."""
     logger.info("Initializing ADK environment and plugins...")
 
-    # Placeholder for HttpRetryOptions (for robustness, applied to network-heavy agents)
-    # The ADK allows you to configure this globally or per-agent/tool
-    # http_retry_options = HttpRetryOptions(max_retries=5, backoff_factor=0.5)
+    # HttpRetryOptions for robustness, applied to network-heavy agents
 
     http_retry_options = types.HttpRetryOptions(
             attempts=5,  # Maximum retry attempts
@@ -30,11 +28,11 @@ def setup_adk_environment():
             http_status_codes=[429, 500, 503, 504],  # Retry on these HTTP errors
         )
 
-    # Placeholder for LoggingPlugin
+    # LoggingPlugin
     # The ADK's LoggingPlugin provides structured logging across agents and flows.
     logging_plugin = LoggingPlugin()
 
-    # Placeholder for Google Search Tool
+    # Google Search Tool
     google_search_tool = GoogleSearchTool()
 
     # Returning mock objects/configurations for demonstration
@@ -93,7 +91,7 @@ class InterestAgent(MockAgent):
     """1. Ask the user what is current interest area."""
 
     def execute(self) -> str:
-        # In a real ADK environment, this would involve prompting the user
+        #  Involve prompting the user
         # through a Context object and waiting for input.
 
         # --- Mock User Input ---
@@ -118,7 +116,7 @@ class StreamResearchAgent(MockAgent):
         search_query = f"3 best high school and college educational streams for interest in {interest}"
 
         # In a real ADK Agent, you would call:
-        # search_results = self.tools['search_tool'].run(query=search_query)
+        # search_results = self.tools['google_search'].run(query=search_query)
 
         # --- Mock Search Result ---
         mock_streams = (
@@ -296,7 +294,7 @@ def run_career_builder_helper():
 
     logger.info("Starting Career Builder Helper Agentic Flow...")
 
-    # In a real ADK project, you would define a Flow object
+    # Define a Flow object
     # that manages the execution and state transitions automatically.
 
     current_agent_index = 0
